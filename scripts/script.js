@@ -47,6 +47,8 @@ const data = [
   const imcNumber = document.querySelector("#imc-number span");
   const imcInfo = document.querySelector("#imc-info span");
   const backBtn = document.querySelector("#back-btn");
+  const calcContainer = document.querySelector("#calc-container");
+  const resultContainer = document.querySelector("#result-container");
 
   //Funções
 
@@ -87,6 +89,11 @@ const data = [
     return imc;
   }
 
+  function showOrHideResults(){
+    calcContainer.classList.toggle("hide");
+    resultContainer.classList.toggle("hide");
+  }
+
   //Inicialização
 
     createTable(data);
@@ -121,6 +128,8 @@ const data = [
 
     imcNumber.innerText = imc;
     imcInfo.innerText = info;
+
+    showOrHideResults();
   });
 
   clearBtn.addEventListener("click", (event) => {
