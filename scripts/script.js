@@ -78,6 +78,11 @@ const data = [
     return text.replace(/[^0-9,]/g, "");
   }
 
+  function calcImc(weight, height) {
+    const imc = (weight / (height * height)).toFixed(1);
+
+    return imc;
+  }
 
   //Inicialização
 
@@ -91,6 +96,16 @@ const data = [
     });
   });
 
+  calcBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const weight = +weightInput.value.replace(",", ".");
+    const height = +heightInput.value.replace(",", ".");
+
+    if(!weight || !height) return;
+
+    const imc = calcImc(weight, height);
+  });
 
   clearBtn.addEventListener("click", (event) => {
     event.preventDefault();
