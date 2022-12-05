@@ -35,9 +35,9 @@ const data = [
       info: "Obesidade grave",
       obesity: "III",
     },
-  ];
+];
 
-  //Seleção de elementos
+//Seleção de elementos
 
   const imcTable = document.querySelector("#imc-table");
   const heightInput = document.querySelector("#height");
@@ -50,9 +50,9 @@ const data = [
   const calcContainer = document.querySelector("#calc-container");
   const resultContainer = document.querySelector("#result-container");
 
-  //Funções
+//Funções
 
-  function createTable(data) {
+function createTable(data) {
     data.forEach((item) => {
         const div = document.createElement("div");
         div.classList.add("table-data");
@@ -72,41 +72,42 @@ const data = [
 
         imcTable.appendChild(div);
     });
-  }
+}
 
-  function cleanInputs(){
+function cleanInputs(){
     heightInput.value = "";
     weightInput.value = "";
-  }
+}
 
-  function validDigits(text){
+function validDigits(text){
     return text.replace(/[^0-9,]/g, "");
-  }
+}
 
-  function calcImc(weight, height) {
+function calcImc(weight, height) {
     const imc = (weight / (height * height)).toFixed(1);
 
     return imc;
-  }
+}
 
-  function showOrHideResults(){
+function showOrHideResults(){
     calcContainer.classList.toggle("hide");
     resultContainer.classList.toggle("hide");
-  }
+}
 
-  //Inicialização
+//Inicialização
 
-    createTable(data);
+createTable(data);
 
-  //Eventos
-  [heightInput, weightInput].forEach((element) => {
+//Eventos
+
+[heightInput, weightInput].forEach((element) => {
     element.addEventListener("input", (event) => {
         const updateValue = validDigits(event.target.value);
         event.target.value = updateValue;
     });
-  });
+});
 
-  calcBtn.addEventListener("click", (event) => {
+calcBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
     const weight = +weightInput.value.replace(",", ".");
@@ -130,10 +131,15 @@ const data = [
     imcInfo.innerText = info;
 
     showOrHideResults();
-  });
+});
 
-  clearBtn.addEventListener("click", (event) => {
+clearBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
     cleanInputs();
 });
+
+backBtn.addEventListener("click", (event) => {
+    cleanInputs();
+    showOrHideResults();
+})
