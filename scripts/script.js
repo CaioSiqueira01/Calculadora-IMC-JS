@@ -105,6 +105,16 @@ const data = [
     if(!weight || !height) return;
 
     const imc = calcImc(weight, height);
+
+    let info;
+
+    data.forEach((item) => {
+        if(imc >= item.min && imc <= item.max) {
+            info = item.info;
+        }
+    });
+
+    if (!info) return;
   });
 
   clearBtn.addEventListener("click", (event) => {
