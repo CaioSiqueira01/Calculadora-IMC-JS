@@ -74,14 +74,26 @@ const data = [
     weightInput.value = "";
   }
 
+  function validDigits(text){
+    return text.replace(/[^0-9,]/g, "");
+  }
+
+
   //Inicialização
 
     createTable(data);
 
   //Eventos
+  [heightInput, weightInput].forEach((element) => {
+    element.addEventListener("input", (event) => {
+        const updateValue = validDigits(event.target.value);
+        event.target.value = updateValue;
+    });
+  });
+
 
   clearBtn.addEventListener("click", (event) => {
     event.preventDefault();
-    
+
     cleanInputs();
 });
