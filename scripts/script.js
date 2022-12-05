@@ -44,6 +44,9 @@ const data = [
   const weightInput = document.querySelector("#weight");
   const calcBtn = document.querySelector("#calc-btn");
   const clearBtn = document.querySelector("#clear-btn");
+  const imcNumber = document.querySelector("#imc-number span");
+  const imcInfo = document.querySelector("#imc-info span");
+  const backBtn = document.querySelector("#back-btn");
 
   //Funções
 
@@ -115,6 +118,9 @@ const data = [
     });
 
     if (!info) return;
+
+    imcNumber.innerText = imc;
+    imcInfo.innerText = info;
   });
 
   clearBtn.addEventListener("click", (event) => {
