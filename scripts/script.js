@@ -69,6 +69,19 @@ const data = [
     });
   }
 
+  function cleanInputs(){
+    heightInput.value = "";
+    weightInput.value = "";
+  }
+
   //Inicialização
+
     createTable(data);
+
   //Eventos
+
+  clearBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    
+    cleanInputs();
+});
