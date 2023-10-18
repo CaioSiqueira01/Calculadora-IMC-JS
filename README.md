@@ -4,7 +4,7 @@ Uma simples calculadora de IMC que permite aos usuários calcular seu IMC com ba
 
 ## Aplicação
 
-[Calculadora IMC](https://calculadora-imc-js-nine.vercel.app/)
+[Calculadora IMC](https://to-do-list-o0ss7enxs-caiosiqueira01.vercel.app/)
 
 ## Funcionalidades
 
